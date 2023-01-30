@@ -9,7 +9,7 @@ use super::send_packets;
 use super::game_main;
 
 pub fn start_client() {
-    let mut socket = Socket::bind("127.0.0.1:1919").unwrap();
+    let mut socket = Socket::bind("127.0.0.1:1918").unwrap();
 
     let (msg_out_tx, msg_out_rx) = mpsc::channel::<Packet>();
     let (msg_in_tx, msg_in_rx) = mpsc::channel::<Packet>();
