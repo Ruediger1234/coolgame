@@ -19,8 +19,7 @@ pub fn start_client() {
 
     thread::spawn(move || receive_packets::receive_packets(packet_receiver, msg_in_tx));
     thread::spawn(move || send_packets::send_from_channel(packet_sender, msg_out_rx));
-    thread::spawn(move || game_main::in_temp(msg_in_rx));
-    thread::spawn(move || game_main::out_temp(msg_out_tx));
+    game_main::game_main();
 
     let poll_loop = thread::spawn(move || socket.start_polling());
 
